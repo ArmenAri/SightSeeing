@@ -24,7 +24,7 @@ public class Player extends Entity {
 
 	@Override
 	public void update() {
-		Renderer.renderText(this.getName(), x - 2, y - 10, 8);
+		Renderer.renderText(this.getName(), x - 2, y - 10, 8, Constants.WHITE);
 		if (isAbleToMove()) {
 			if (getName().equals("Player 0")) {
 				if (Keyboard.isKeyDown(Keyboard.KEY_W)) {

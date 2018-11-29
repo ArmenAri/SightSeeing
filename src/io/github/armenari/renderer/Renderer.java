@@ -68,6 +68,23 @@ public class Renderer {
 		Texture.default_font.unbind();
 		glDisable(GL_TEXTURE_2D);
 	}
+	
+	public static void renderText(String msg, float x, float y, int size, float[] color) {
+		msg = msg.toLowerCase();
+		glEnable(GL_TEXTURE_2D);
+		Texture.default_font.bind();
+		glBegin(GL_QUADS);
+		glColor4f(color[0], color[1], color[2], color[3]);
+		for (int i = 0; i < msg.length(); i++) {
+			char c = msg.charAt(i);
+			int offs = i * size;
+			charData(c, x + offs, y, size);
+		}
+		glColor4f(1, 1, 1, 1);
+		glEnd();
+		Texture.default_font.unbind();
+		glDisable(GL_TEXTURE_2D);
+	}
 
 	public static void charData(char c, float f, float y, int size) {
 		int i = chars.indexOf(c);

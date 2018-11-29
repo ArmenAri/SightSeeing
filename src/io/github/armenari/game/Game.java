@@ -3,6 +3,7 @@ package io.github.armenari.game;
 import java.util.ArrayList;
 
 import io.github.armenari.fx.Particle;
+import io.github.armenari.game.blocks.Chest;
 
 public class Game {
 
@@ -10,9 +11,9 @@ public class Game {
 
 	public static ArrayList<Particle> particles = new ArrayList<>();;
 	private ArrayList<Entity> entities;
-	private ArrayList<Player> players;
+	public static ArrayList<Player> players;
 
-	Entity chest;
+	Chest chest;
 	Entity potion;
 
 	public Game(int playerNumber) {
@@ -20,7 +21,7 @@ public class Game {
 		entities = new ArrayList<>();
 		players = new ArrayList<>();
 
-		chest = new Entity(0, 500, 500, true);
+		chest = new Chest(15, 500, 500);
 		potion = new Entity(3, 100, 500, true);
 
 		for (int i = 0; i < this.playerNumber; i++) {
